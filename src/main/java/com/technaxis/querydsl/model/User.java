@@ -72,20 +72,20 @@ public class User extends AbstractAuditableDeletableEntity {
 		public static final List<Role> ADMIN_ROLES = Arrays.asList(ADMIN, SUPER_ADMIN);
 	}
 
-	@AllArgsConstructor
 	public enum SortType implements ISortType {
 
-//		ID(QUser.user.id),
-//		BONUSES(QUser.user.bonuses),
-//		EMAIL(QUser.user.email),
-//		NAME(QUser.user.name),
-//		PHONE(QUser.user.phone),
-//		ROLE(QUser.user.role);
-		ROLE(null);
+		ID(QUser.user.id),
+		BONUSES(QUser.user.bonuses),
+		EMAIL(QUser.user.email),
+		NAME(QUser.user.name),
+		PHONE(QUser.user.phone),
+		ROLE(QUser.user.role);
 
 		@Getter
 		private ComparableExpressionBase[] expressions;
 
-
+		SortType(ComparableExpressionBase... expressions) {
+			this.expressions = expressions;
+		}
 	}
 }
