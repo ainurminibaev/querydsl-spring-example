@@ -1,0 +1,12 @@
+target
+/logs
+/upload
+application.properties
+log4j2-spring.xml
+.idea
+*.iml
+data
+.DS_Store
+deploy
+ddl_jpa_creation.sql
+custom_scripts.sql

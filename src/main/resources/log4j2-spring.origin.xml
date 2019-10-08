@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60" status="debug">
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} %5.5p  [%15.15t] %-30.30logger{1.} :  %m%n"/>
+        </Console>
+        <!--TODO: change logs name-->
+        <RollingRandomAccessFile name="RollingRandomAccessFile"
+                                 fileName="logs/log-name.log"
+                                 filePattern="logs/log-name-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{ISO8601} %5.5p [%15.15t] %30.30logger{1.} :  %m%n"/>
+            <Policies>
+                <!--
+                <OnStartupTriggeringPolicy/>
+                -->
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <!--TODO: change this-->
+        <Logger name="com.technaxis.querydsl" level="debug"/>
+
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="RollingRandomAccessFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
